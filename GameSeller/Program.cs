@@ -1,4 +1,6 @@
 ﻿using System;
+using GameSeller.Adapters;
+using GameSeller.Concrete;
 
 namespace GameSeller
 {
@@ -13,13 +15,15 @@ namespace GameSeller
                 Password = "123456",
                 FirstName = "kaan",
                 LastName = "şen",
-                TcNo = "111111111",
+                TcNo = "11111111",
                 DateOfBirth = new DateTime(1998,08,10),
             };
 
-            Console.WriteLine(gamer1.DateOfBirth.Year);
+            GamerManager gamerManager = new GamerManager(new MernisPersonCheck());
+            //GamerManager gamerManager = new GamerManager(new GamerTestCheckManager()); /*Test mernis check*/
 
-
+            gamerManager.Insert(gamer1);
+            
         }
     }
 }
